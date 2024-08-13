@@ -43,26 +43,7 @@ async def run_main(message):
     await STOP.wait()
     await client.disconnect()
 
-# async def publish(message,counter):
-#     # host = '83.110.196.13'
-#     # username = 'AHLN'
-#     # password = '123456'
-#     # client.on_message = on_message
-#     # client.on_connect = on_connect
-#     # client.set_auth_credentials(username=username,password=password)
-#     # # if counter == 0:
-#     # await client.connect(host, 1883, keepalive=65535)
-#     # gmqtt.Message('TEST/WILL/42', "I'm dead finally", will_delay_interval=10)
-#     # await publish_message(message,ali)
-#     print(ali)
-#     # await STOP.wait()
-#     # await client.disconnect()
-
 loop = asyncio.get_event_loop()
 
 main_task = loop.create_task(run_main("start"))
-# image_task = loop.create_task(capture_image())
-# publish_task = loop.create_task(execute_publish())
-
-combined_task = asyncio.gather(main_task)
-loop.run_until_complete(combined_task)
+loop.run_until_complete(main_task)
